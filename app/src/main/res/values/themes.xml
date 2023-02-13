@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Week2" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Week2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,11 +12,16 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowSplashScreenBackground">@color/splash_screen</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/icon</item>
+        <item name="android:windowSplashScreenAnimationDuration">1000</item>
+        <item name="android:windowSplashScreenBehavior">icon_preferred</item>
     </style>
 
-    <style name="Splash" parent="Theme.Week2">
-        <item name="android:windowSplashScreenBackground">@color/organge</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/group_18118</item>
+<!--    <style name="Splash" parent="Theme.Week2">-->
+<!--        <item name="android:windowSplashScreenBackground">@color/organge</item>-->
+<!--        <item name="android:windowSplashScreenAnimatedIcon">@drawable/group_18118</item>-->
+<!--        <item name="android:windowSplashScreen"-->
 
-    </style>
+<!--    </style>-->
 </resources>

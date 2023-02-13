@@ -16,7 +16,7 @@
 
     <style name="Splash" parent="Theme.Week2">
         <item name="android:windowSplashScreenBackground">@color/organge</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/foodhub</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/group_18118</item>
 
     </style>
 </resources>

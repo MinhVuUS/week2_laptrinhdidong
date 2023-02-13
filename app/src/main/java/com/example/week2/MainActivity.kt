@@ -8,9 +8,10 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         Thread.sleep(2000)
         val splashScreen = installSplashScreen()
+        super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         val button1 = findViewById<ImageButton>(R.id.button1)
         button1.setOnClickListener{

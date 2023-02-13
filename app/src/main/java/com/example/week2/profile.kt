@@ -14,18 +14,18 @@ class profile : AppCompatActivity() {
         val nameInput = view.findViewById<EditText>(R.id.etname)
         val emailInput = view.findViewById<EditText>(R.id.etemail)
         val phoneInput = view.findViewById<EditText>(R.id.etphone)
-        val buttonalert = findViewById<EditText>(R.id.edtname)
 
-        buttonalert.setOnClickListener() {
+
             AlertDialog.Builder(this)
                 .setView(view)
                 .setPositiveButton("OK") { dialog, which ->
                     val name = nameInput.text.toString()
                     val email = emailInput.text.toString()
                     val phone = phoneInput.text.toString()
-                    profilename.setText(name)
-                    profilemail.setText(email)
-                    profilephone.setText(phone)
+                    // Do something with the input text
+                    findViewById<EditText>(R.id.edtname).setText(name)
+                    findViewById<EditText>(R.id.edtmail).setText(email)
+                    findViewById<EditText>(R.id.edtphone).setText(phone)
                 }
                 .setNegativeButton("Cancel") { dialog, which ->
                     dialog.cancel()
@@ -33,6 +33,6 @@ class profile : AppCompatActivity() {
                 .show()
 
 
-        }
+
         }
 }

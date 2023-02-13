@@ -23,7 +23,9 @@ class profile : AppCompatActivity() {
                     val name = nameInput.text.toString()
                     val email = emailInput.text.toString()
                     val phone = phoneInput.text.toString()
-                    // Do something with the input text
+                    profilename.setText(name)
+                    profilemail.setText(email)
+                    profilephone.setText(phone)
                 }
                 .setNegativeButton("Cancel") { dialog, which ->
                     dialog.cancel()

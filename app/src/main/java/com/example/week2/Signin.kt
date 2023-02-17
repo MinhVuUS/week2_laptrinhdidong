@@ -7,22 +7,56 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.example.week2.databinding.SigninScreenBinding
 
 class Signin : AppCompatActivity() {
+    private lateinit var viewModel: SigninViewModel
+    private lateinit var binding: SigninScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signin_screen)
-        val username = findViewById<EditText>(R.id.edtusername)
-        val password = findViewById<EditText>(R.id.edtpassword)
-        password.transformationMethod = android.text.method.PasswordTransformationMethod.getInstance()
-        val loginButton = findViewById<ImageButton>(R.id.login)
-        loginButton.setOnClickListener {
-            if (username.text.toString() == "username@gmail.com" && password.text.toString() == "123456") {
-                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@Signin, profile::class.java))
-            } else {
-                Toast.makeText(this, "Login failed! Try again", Toast.LENGTH_SHORT).show()
+        binding = DataBindingUtil.setContentView(this, R.layout.signin_screen)
+        viewModel = ViewModelProvider(this).get(SigninViewModel::class.java)
+        binding.lifecycleOwner = this
+        binding.back.setOnClickListener{
+            onBackPressed()
+        }
+        binding.login.setOnClickListener { loginOnClick() }
+        binding.signin2.setOnClickListener { onSignUpNavigate() }
 
+        listenerSuccessEvent()
+        listenerErrorEvent()
+
+    }
+
+    private fun listenerErrorEvent() {
+        viewModel.isErrorEvent.observe(this) { errMsg ->
+            Toast.makeText(this, errMsg, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun listenerSuccessEvent() {
+        viewModel.isSuccessEvent.observe(this) { isSuccess ->
+            if(isSuccess)
+            {
+                // Success
+                Toast.makeText(this, "SignIn Success", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, profile::class.java))
             }
         }
-}}
+    }
+
+    private fun onSignUpNavigate() {
+        startActivity(Intent(this, signup::class.java))
+        finish()
+    }
+
+    private fun loginOnClick() {
+        viewModel.onLogin(binding.edtusername.text.toString(), binding.edtpassword.text.toString())
+    }
+
+
+
+}

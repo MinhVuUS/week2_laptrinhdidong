@@ -30,6 +30,8 @@
         <activity android:name=".Welcome_Screen"></activity>
         <activity android:name=".Signin"></activity>
         <activity android:name=".profile"></activity>
+        <activity android:name=".signup"></activity>
+
 
     </application>
 

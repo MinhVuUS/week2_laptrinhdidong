@@ -3,77 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <EditText
-        android:id="@+id/etname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/blur"
-        android:ems="10"
-        android:hint="Enter your name"
-        android:inputType="textPersonName"
-        android:outlineAmbientShadowColor="#84FFFF"
-        android:textColor="#FF9E80"
-        android:textColorHighlight="#FF9E80"
-        android:textColorHint="#FF9E80"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView12"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        tools:layout_editor_absoluteY="314dp" />
-
-    <EditText
-        android:id="@+id/etemail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:background="@color/blur"
-        android:ems="10"
-        android:hint="Enter your email"
-        android:inputType="textPersonName"
-        android:outlineAmbientShadowColor="#84FFFF"
-        android:textColor="#FF9E80"
-        android:textColorHighlight="#FF9E80"
-        android:textColorHint="#FF9E80"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/etname"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etname"
-        app:layout_constraintTop_toBottomOf="@+id/etname" />
-
-    <EditText
-        android:id="@+id/etphone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:background="@color/blur"
-        android:ems="10"
-        android:hint="Enter your phone number"
-        android:inputType="textPersonName"
-        android:outlineAmbientShadowColor="#84FFFF"
-        android:textColor="#FF9E80"
-        android:textColorHighlight="#FF9E80"
-        android:textColorHint="#FF9E80"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/etemail"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etemail"
-        app:layout_constraintTop_toBottomOf="@+id/etemail" />
+    android:layout_height="match_parent"
+    android:padding="20dp">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textViewProfileFieldLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputProfileFieldLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProfileFieldLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputProfileField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/your_update_profile"
+            android:inputType="text"
+            android:textColorHint="#78909C"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="-23dp"
+            tools:layout_editor_absoluteY="215dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:text="ENTER YOUR PROFILE"
-        android:textColor="#F83120"
-        android:textColorHighlight="#F83120"
-        android:textColorLink="#F83120"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/etname"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputProfileFieldLayout">
+
+        <Button
+            android:id="@+id/OK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@color/blur"
+            android:text="OK"
+            android:textColor="@color/organge" />
+
+        <Button
+            android:id="@+id/Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@color/blur"
+            android:text="Cancel"
+            android:textColor="@color/organge" />
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

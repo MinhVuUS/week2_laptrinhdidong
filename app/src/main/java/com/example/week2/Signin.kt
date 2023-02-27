@@ -43,7 +43,7 @@ class Signin : AppCompatActivity() {
             {
                 // Success
                 Toast.makeText(this, "SignIn Success", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, profile::class.java))
+                startActivity(Intent(this, RestaurantActivity::class.java))
             }
         }
     }

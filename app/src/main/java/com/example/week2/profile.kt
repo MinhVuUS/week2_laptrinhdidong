@@ -18,10 +18,7 @@ class profile : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-//        binding.edtname.text = DataStore.currentUserData["fullName"]
-//        binding.edtfullname.text = DataStore.currentUserData["fullName"]
-//        binding.edtmail.text = DataStore.currentUserData["email"]
-//        binding.edtphone.text = DataStore.currentUserData["phoneNumber"]
+
 
 
         binding.edtfullname.setOnClickListener {

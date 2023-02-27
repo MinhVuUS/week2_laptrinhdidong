@@ -1,10 +1,12 @@
 package com.example.week2
 
 
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.week2.DataStore
+import java.util.regex.Pattern
 
 
 class SignupViewModel : ViewModel() {
@@ -40,7 +42,7 @@ class SignupViewModel : ViewModel() {
         if (!isPasswordValid(password))
         {
             if(_errorString.isNotEmpty()) _errorString += "\n"
-            _errorString += "\nPassword "
+            _errorString += "\nInvalid Password "
         }
 
         // Throw Error
@@ -61,7 +63,17 @@ class SignupViewModel : ViewModel() {
     }
 
     private fun isPasswordValid(password: String): Boolean {
-        return password.length in 8..10
+        val passwordREGEX = Pattern.compile("^" +
+                "(?=.*[0-9])" +         //at least 1 digit
+                "(?=.*[a-z])" +         //at least 1 lower case letter
+                "(?=.*[A-Z])" +         //at least 1 upper case letter
+                "(?=.*[a-zA-Z])" +      //any letter
+                "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                "(?=\\S+$)" +           //no white spaces
+                ".{8,}" +               //at least 8 characters
+                "$");
+        return passwordREGEX.matcher(password).matches()
+
     }
 
 }

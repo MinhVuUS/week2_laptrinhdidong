@@ -11,5 +11,6 @@
     <color name="blur2">#FF615F5F</color>
     <color name="organge">#FE724C</color>
     <color name="splash_screen">#009EFF</color>
-    <color name="blue">#023DE3</color>
+    <color name="blue">#DD0021</color>
+    <color name="red">#DD0021</color>
 </resources>

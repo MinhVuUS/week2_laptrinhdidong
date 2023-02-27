@@ -2,6 +2,7 @@ package com.example.week2
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -23,24 +24,8 @@ class signup : AppCompatActivity() {
         binding.lifecycleOwner = this
 
 //
-        binding.buttonSignUp.setOnClickListener {onSignUp()}
-//        viewModel.isValid.observe(this){ isValid ->
-//            if(isValid)
-//            {
-//                //update data store
-//                DataStore.userDataStore.add(mutableMapOf(
-//                    "fullName" to binding.fullNameInputText.text.toString(),
-//                    "email" to binding.emailInputText.text.toString(),
-//                    "password" to binding.passwordInputText.text.toString(),
-//                ))
-//
-//                Log.i("DataStore", DataStore.userDataStore.toString())
-//            }
-//
-//            else
-//                Log.i("SignUp", "False")
-//        }
-//    }
+        binding.buttonSignUp.setOnClickListener { onSignUp() }
+
         binding.textViewSignin.setOnClickListener {
             startActivity(Intent(this, Signin::class.java))
             finish()
@@ -73,8 +58,21 @@ class signup : AppCompatActivity() {
     }
 
     private fun onSignUp() {
-        viewModel.onSignUp(binding.fullNameInputText.text.toString(),
+        viewModel.onSignUp(
+            binding.fullNameInputText.text.toString(),
             binding.emailInputText.text.toString(),
-            binding.passwordInputText.text.toString())
+            binding.passwordInputText.text.toString()
+
+        )
     }
+
+    fun isValidPassword(passwordInputText: EditText): Boolean {
+        passwordInputText?.let {
+            val passwordPattern =
+                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
+            val passwordMatcher = Regex(passwordPattern)
+
+            return passwordMatcher.find(passwordInputText.text.toString()) != null
+        } ?: return false
     }
+}

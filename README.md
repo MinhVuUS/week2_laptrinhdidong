@@ -1,4 +1,4 @@
-# week3_laptrinhdidong
+# week4_laptrinhdidong
 
 ### Tô Minh Vũ - 19207120
 ### Lý Hoàng Thiên - 19207105
@@ -6,4 +6,4 @@
 ### Quan Minh Hiếu -19207070
 
 
-https://user-images.githubusercontent.com/121915342/219689641-a2a65dc2-e02b-4937-b85d-82427a4ca548.mp4
+https://user-images.githubusercontent.com/121915342/221638513-bdf2a393-f84f-475e-98dd-5bf86ae1deac.mp4
